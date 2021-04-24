@@ -58,8 +58,7 @@ export default function UserIdentification() {
           />
           <View style={styles.footer}>
             <Button
-              disabled={!isFilled}
-              opacity={!isFilled}
+              blocked={!isFilled}
               onPress={handleSubmit}
             >Confirmar</Button>
           </View>

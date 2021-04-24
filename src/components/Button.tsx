@@ -5,22 +5,37 @@ import colors from "../styles/colors";
 import fonts from '../styles/fonts';
 
 interface ButtonProps extends TouchableOpacityProps {
-  opacity?: boolean,
+  blocked?: boolean,
   children: ReactNode
 }
 
-export default function Button({ children, opacity, ...otherProperties }: ButtonProps) {
+export default function Button({ children, blocked = false, ...otherProperties }: ButtonProps) {
   return (
-    <TouchableOpacity
-      style={[
-        styles.button,
-        opacity && { opacity: 0.5 },
-      ]}
-      activeOpacity={0.7}
-      {...otherProperties}
-    >
-      <Text style={styles.textButton}>{children}</Text>
-    </TouchableOpacity>
+    <>
+      { !blocked ?
+        <TouchableOpacity
+          style={styles.button}
+          activeOpacity={0.7}
+          disabled={false}
+          {...otherProperties
+          }
+        >
+          <Text style={styles.textButton}>{children}</Text>
+        </TouchableOpacity >
+        :
+        <TouchableOpacity
+          style={[
+            styles.button,
+            { opacity: 0.5 },
+          ]}
+          activeOpacity={0.7}
+          disabled={true}
+          {...otherProperties}
+        >
+          <Text style={styles.textButton}>{children}</Text>
+        </TouchableOpacity>
+      }
+    </>
   );
 }
 
@@ -31,7 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.green,
-    borderRadius: 16
+    borderRadius: 16,
   },
   textButton: {
     fontFamily: fonts.complement,
