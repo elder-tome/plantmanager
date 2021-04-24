@@ -1,5 +1,10 @@
 import React, { ReactNode } from "react";
-import { TouchableOpacity, Text, StyleSheet, TouchableOpacityProps } from "react-native";
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  TouchableOpacityProps
+} from "react-native";
 
 import colors from "../styles/colors";
 import fonts from '../styles/fonts';
