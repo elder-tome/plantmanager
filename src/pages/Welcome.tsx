@@ -5,7 +5,8 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  StatusBar
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
@@ -49,24 +50,25 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: StatusBar.currentHeight
   },
   title: {
     fontSize: 32,
     textAlign: 'center',
     fontFamily: fonts.heading,
     color: colors.heading,
-    marginTop: 80,
+    marginTop: 60,
     lineHeight: 38
   },
   image: {
     height: Dimensions.get('window').width * 0.73,
-    width: '100%',
+    width: '100%'
   },
   subtitle: {
     fontFamily: fonts.text,
     textAlign: 'center',
     fontSize: 18,
-    color: colors.body_dark,
+    color: colors.body_dark
   },
   button: {
     height: 56,
@@ -75,10 +77,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.green,
     borderRadius: 16,
-    marginBottom: 56,
+    marginBottom: 60
   },
   buttonIcon: {
     fontSize: 24,
-    color: colors.white,
+    color: colors.white
   }
 });
